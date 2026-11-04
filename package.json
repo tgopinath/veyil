@@ -1,0 +1,7 @@
+{
+  "name": "veyil",
+  "private": true,
+  "type": "module",
+  "scripts": { "dev": "node server.mjs" },
+  "dependencies": { "@vercel/blob": "^1.1.1" }
+}

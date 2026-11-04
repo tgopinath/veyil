@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Veyil · Sun-dried pantry</title>
+<meta name="description" content="Solar-dried vegetable flakes, root vegetables, leaves, pickles and vathal from Tamil Nadu. Soak 10 minutes, cook like fresh.">
+<meta name="theme-color" content="#b5401b">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,400&family=Noto+Sans+Tamil:wght@400;700&display=swap">
+<link rel="stylesheet" href="kolam/tokens.css">
+<link rel="stylesheet" href="styles.css?v=8">
+</head>
+<body>
+<!-- Shared filters for every product illustration -->
+<svg class="defs" aria-hidden="true" focusable="false">
+  <filter id="vy-grain" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="3"/><feColorMatrix values="0 0 0 0 .35  0 0 0 0 .25  0 0 0 0 .15  0 0 0 .22 0"/><feComposite in2="SourceGraphic" operator="in"/></filter>
+  <filter id="vy-grain-c"><feTurbulence type="fractalNoise" baseFrequency="1.4" numOctaves="1"/><feDisplacementMap in="SourceGraphic" scale="6"/></filter>
+  <filter id="vy-blur" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="10"/></filter>
+  <filter id="vy-blur-s"><feGaussianBlur stdDeviation="5"/></filter>
+  <filter id="vy-drop" x="-10%" y="-10%" width="120%" height="120%"><feDropShadow dx="1.5" dy="2.5" stdDeviation="1.6" flood-color="#2a1608" flood-opacity=".38"/></filter>
+</svg>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="ribbon">Free delivery above ₹499 · Dried this week in our solar house, shipped within 48 hours</div>
+
+<header class="top" id="top">
+  <div class="top-in">
+    <a class="brand" href="#/" aria-label="Veyil home">
+      <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="8" fill="var(--sun)"/><g stroke="var(--sun)" stroke-width="3" stroke-linecap="round"><path d="M20 3v5M20 32v5M3 20h5M32 20h5M8 8l3.5 3.5M28.5 28.5 32 32M8 32l3.5-3.5M28.5 11.5 32 8"/></g></svg>
+      <span class="brand-t"><b>VEYIL</b><small lang="ta">வெயில்</small></span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <div class="mega-wrap">
+        <button class="nav-btn" id="megaBtn" aria-expanded="false" aria-controls="mega">Shop <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+        <div class="mega" id="mega" hidden></div>
+      </div>
+      <a class="nav-a" href="#/shop?view=dish">Cook by dish</a>
+      <a class="nav-a" href="#/shop?type=boxes">Boxes</a>
+      <a class="nav-a" href="#/story">How it’s made</a>
+    </nav>
+    <form class="search" id="searchForm" role="search">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="searchInput" type="search" placeholder="Search tomato, vathal, pickle…" aria-label="Search products" autocomplete="off">
+      <ul class="suggest" id="suggest" role="listbox" hidden></ul>
+    </form>
+    <button class="icon-btn" id="themeBtn" aria-label="Switch colour theme"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg></button>
+    <button class="cart-btn" id="cartBtn" aria-label="Open cart">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l-1.2 11.1a2 2 0 0 1-2 1.9H8.2a2 2 0 0 1-2-1.9z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+      <span class="cart-count" id="cartCount" aria-live="polite">0</span>
+    </button>
+  </div>
+  <nav class="type-strip" id="typeStrip" aria-label="Product types"></nav>
+</header>
+
+<main id="main" tabindex="-1"></main>
+
+<footer class="foot">
+  <div class="foot-in">
+    <div class="foot-brand">
+      <b>VEYIL</b> <span lang="ta">வெயில்</span>
+      <p>Vegetables dried by the sun in a solar dry house in Tamil Nadu. No preservatives, no colours, no fryers.</p>
+    </div>
+    <div><h3>Shop</h3><ul id="footTypes"></ul></div>
+    <div><h3>Help</h3><ul><li><a href="#/story">How it’s made</a></li><li><a href="#/story#faq">Soaking & storage</a></li><li><a href="#/shop?type=boxes">Gift boxes</a></li><li><button class="link" id="creditsBtn">Photo credits</button></li><li><a href="admin.html">Admin</a></li></ul></div>
+    <div><h3>Say vanakkam</h3><ul><li>WhatsApp orders</li><li>Wholesale & restaurants</li><li>Farm visits on Saturdays</li></ul></div>
+  </div>
+  <p class="foot-note">Demo store · prices and stock are illustrative · product art is drawn in code, reference photos from Wikimedia Commons</p>
+</footer>
+
+<div class="scrim" id="scrim" hidden></div>
+<aside class="drawer" id="cart" aria-label="Your cart" aria-hidden="true" tabindex="-1"></aside>
+<dialog class="modal" id="credits"></dialog>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="credits.js?v=7"></script>
+<script src="data.js?v=7"></script>
+<script src="art.js?v=7"></script>
+<script src="app.js?v=9"></script>
+</body>
+</html>
