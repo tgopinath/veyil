@@ -48,7 +48,7 @@
   const status = (id) => !savedById()[id] ? 'built-in' : builtById[id] ? 'edited' : 'added';
 
   async function load() {
-    const r = await fetch('/api/products', { cache: 'no-store' });
+    const r = await fetch('/api/products?fresh=' + Date.now(), { cache: 'no-store' }); // skip the CDN copy
     saved = r.ok ? await r.json() : [];
   }
   async function start() {
@@ -299,7 +299,7 @@
       const i = saved.findIndex((p) => p.id === product.id); i >= 0 ? (saved[i] = product) : saved.push(product);
       dirty = false; const wasNew = !current; current = null; draft = null;
       edit(product.id);
-      toast(wasNew ? `${product.name} is now in the store` : 'Saved. The store shows it on next load.');
+      toast(wasNew ? `${product.name} is saved. Shoppers see it within a minute.` : 'Saved. Shoppers see it within a minute.');
     } catch (e) { if (e.message !== 'auth') $('#formErr').textContent = e.message; }
     finally { btns.forEach((b) => b.disabled = false); }
   }

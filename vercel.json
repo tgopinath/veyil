@@ -1,0 +1,9 @@
+{
+  "framework": null,
+  "buildCommand": "",
+  "installCommand": "npm install",
+  "outputDirectory": ".",
+  "headers": [
+    { "source": "/(index.html|admin.html|store.js|admin.js|art.js|data.js|styles.css|admin.css)", "headers": [{ "key": "Cache-Control", "value": "no-cache" }] }
+  ]
+}
