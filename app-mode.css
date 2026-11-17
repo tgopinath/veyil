@@ -1,0 +1,105 @@
+/* Veyil native app looks. Everything here is scoped to html.k-android (Material Design 3, from kolam-m3.css)
+   or html.k-ios (Apple HIG, from kolam-ios.css), which only the Android and iOS apps (or ?app=android / ?app=ios)
+   switch on. The website never matches these selectors and keeps its Kolam look. */
+.vy-app-only { display: none; }
+
+/* ---------- both apps: website chrome goes, the app bars take over ---------- */
+html:is(.k-android, .k-ios) :is(.ribbon, .top, .foot-in, .crumbs, .shop-head h1) { display: none !important; }
+html:is(.k-android, .k-ios) .vy-app-only { display: inline; }
+html:is(.k-android, .k-ios) .skip { display: none; }
+html:is(.k-android, .k-ios) .foot { padding: 8px 0 24px; background: transparent; color: var(--ink-muted); }
+html:is(.k-android, .k-ios) .foot-note { margin: 0 16px; border: 0; opacity: 1; font-size: 12px; line-height: 1.5; }
+html:is(.k-android, .k-ios) .foot-note .link { color: var(--primary-text); font-weight: 700; }
+html:is(.k-android, .k-ios) .vy-search-slot { padding: 8px 16px 4px; }
+html:is(.k-android, .k-ios) .vy-search-slot .search { margin: 0; width: 100%; flex: none; }
+html:is(.k-android, .k-ios) .vy-search-slot .suggest { top: calc(100% + 6px); }
+html:is(.k-android, .k-ios) .shop-head { padding: 8px 0 16px; background: transparent; }
+html:is(.k-android, .k-ios) .shop-head p { margin-top: 0; }
+html:is(.k-android, .k-ios) .shop-head .type-pills { margin-top: 12px; }
+html:is(.k-android, .k-ios) .card:hover { transform: none; box-shadow: none; }
+html:is(.k-android, .k-ios) .vy-badge { position: absolute; top: 2px; right: 2px; min-width: 16px; height: 16px; padding: 0 4px; border-radius: 8px; display: grid; place-items: center; font: 700 11px/1 var(--font-sans); pointer-events: none; }
+html:is(.k-android, .k-ios) .vy-badge[hidden] { display: none; }
+
+/* ---------- Android: Material Design 3 ---------- */
+html.k-android body { background: var(--md-sys-color-surface); padding-bottom: calc(80px + var(--md-inset-bottom, 0px)); }
+html.k-android .vy-badge { background: var(--md-sys-color-error); color: var(--md-sys-color-on-error); }
+/* search bar (M3 search bar: 56dp, full corner, surface container high) */
+html.k-android .vy-search-slot .search input { height: 56px; border: 0; border-radius: var(--md-sys-shape-corner-full); background: var(--md-sys-color-surface-container-high); color: var(--md-sys-color-on-surface); padding: 0 16px 0 52px; font: var(--md-sys-typescale-body-large); }
+html.k-android .vy-search-slot .search input:focus { box-shadow: none; background: var(--md-sys-color-surface-container-highest); }
+html.k-android .vy-search-slot .search > svg { left: 18px; width: 22px; height: 22px; color: var(--md-sys-color-on-surface-variant); }
+html.k-android .suggest { border: 0; border-radius: var(--md-sys-shape-corner-large); background: var(--md-sys-color-surface-container-high); box-shadow: var(--md-sys-elevation-level2); }
+/* hero and sections */
+html.k-android .hero { background: var(--md-sys-color-surface-container-low); border-radius: var(--md-sys-shape-corner-extra-large); margin: 8px 16px 0; }
+html.k-android .hero-in { padding: 24px 20px 28px; }
+html.k-android .hero h1 { font: var(--md-sys-typescale-headline-large); font-weight: 900; letter-spacing: 0; margin: 12px 0; }
+html.k-android .hero p.lede { font: var(--md-sys-typescale-body-large); }
+html.k-android :is(h2, .sec-h h2) { letter-spacing: 0; }
+/* buttons */
+html.k-android .btn { min-height: 40px; padding: 0 24px; border-radius: var(--md-sys-shape-corner-full); font: var(--md-sys-typescale-label-large); }
+html.k-android .btn-primary { background: var(--md-sys-color-primary); color: var(--md-sys-color-on-primary); }
+html.k-android .btn-ghost { box-shadow: none; border: 1px solid var(--md-sys-color-outline); color: var(--md-sys-color-primary); background: transparent; }
+html.k-android .btn-sm { min-height: 40px; }
+html.k-android .add { border-radius: var(--md-sys-shape-corner-full); }
+/* cards: M3 filled cards */
+html.k-android .card { border: 0; border-radius: var(--md-sys-shape-corner-medium); background: var(--md-sys-color-surface-container-low); }
+html.k-android .card .art { background-color: var(--md-sys-color-surface-container); }
+/* chips: filter chips (32dp, small corner) */
+html.k-android .pill { height: 32px; border-radius: var(--md-sys-shape-corner-small); border-color: var(--md-sys-color-outline-variant); background: transparent; color: var(--md-sys-color-on-surface-variant); font: var(--md-sys-typescale-label-large); padding: 0 16px 0 4px; }
+html.k-android .pill.no-thumb { padding: 0 16px; }
+html.k-android .pill .thumb { width: 24px; height: 24px; }
+html.k-android .pill[aria-current="true"] { background: var(--md-sys-color-secondary-container); color: var(--md-sys-color-on-secondary-container); border-color: transparent; }
+html.k-android .chip { border-radius: var(--md-sys-shape-corner-small); }
+/* fields */
+html.k-android .field :is(input, textarea, select), html.k-android select { min-height: 56px; border-radius: var(--md-sys-shape-corner-extra-small); border: 1px solid var(--md-sys-color-outline); background: transparent; color: var(--md-sys-color-on-surface); }
+html.k-android .field :is(input, textarea):focus { outline: 2px solid var(--md-sys-color-primary); outline-offset: -2px; box-shadow: none; }
+html.k-android .radio-card { border-radius: var(--md-sys-shape-corner-medium); border-color: var(--md-sys-color-outline-variant); }
+html.k-android .summary { border: 0; border-radius: var(--md-sys-shape-corner-large); background: var(--md-sys-color-surface-container-low); }
+/* cart: M3 modal side sheet */
+html.k-android .drawer { width: min(400px, 92vw); background: var(--md-sys-color-surface-container-low); border-radius: var(--md-sys-shape-corner-large) 0 0 var(--md-sys-shape-corner-large); box-shadow: var(--md-sys-elevation-level1); padding-top: var(--md-inset-top, 0px); padding-bottom: var(--md-inset-bottom, 0px); }
+html.k-android .drawer-h, html.k-android .drawer-f { border-color: var(--md-sys-color-outline-variant); }
+html.k-android .drawer-h h2 { font: var(--md-sys-typescale-title-large); }
+html.k-android .scrim { background: color-mix(in srgb, var(--md-sys-color-scrim) 32%, transparent); z-index: 1000; }
+html.k-android .drawer { z-index: 1001; }
+/* snackbar */
+html.k-android .toast { bottom: calc(96px + var(--md-inset-bottom, 0px)); left: 16px; right: 16px; transform: translateY(200%); border-radius: var(--md-sys-shape-corner-extra-small); background: var(--md-sys-color-inverse-surface); color: var(--md-sys-color-inverse-on-surface); justify-content: space-between; font: var(--md-sys-typescale-body-medium); padding: 14px 16px; z-index: 1002; }
+html.k-android .toast.show { transform: none; }
+html.k-android .toast button { color: var(--md-sys-color-inverse-primary); text-decoration: none; font: var(--md-sys-typescale-label-large); }
+html.k-android .filters.open { z-index: 1001; border-radius: var(--md-sys-shape-corner-extra-large) var(--md-sys-shape-corner-extra-large) 0 0; background: var(--md-sys-color-surface-container-low); }
+html.k-android dialog.modal { border: 0; border-radius: var(--md-sys-shape-corner-extra-large); background: var(--md-sys-color-surface-container-high); }
+
+/* ---------- iOS: Apple HIG ---------- */
+html.k-ios .vy-badge { background: #D70015; color: #fff; top: 0; right: 0; }
+/* search field (UISearchBar: 36pt, 10pt corner, tertiary fill) */
+html.k-ios .vy-search-slot { padding: 0 16px 8px; }
+html.k-ios .vy-search-slot .search input { height: 36px; border: 0; border-radius: 10px; background: rgba(118, 118, 128, .12); padding: 0 12px 0 34px; font-size: 17px; color: var(--ink); }
+html.k-ios .vy-search-slot .search input:focus { box-shadow: none; background: rgba(118, 118, 128, .16); }
+html.k-ios .vy-search-slot .search > svg { left: 10px; width: 17px; height: 17px; }
+html.k-ios .suggest { border: 0; border-radius: 12px; box-shadow: 0 8px 32px rgba(0, 0, 0, .18); }
+html.k-ios .hero { background: var(--surface); border-radius: 22px; margin: 8px 16px 0; }
+html.k-ios .hero-in { padding: 20px 20px 24px; }
+html.k-ios .hero h1 { font-size: 30px; line-height: 1.1; letter-spacing: -.01em; margin: 10px 0; }
+html.k-ios .hero p.lede { font-size: 17px; }
+html.k-ios .btn { min-height: 50px; font-size: 17px; font-weight: 600; }
+html.k-ios .btn-sm { min-height: 36px; font-size: 15px; }
+html.k-ios .btn:active { transform: none; opacity: .6; }
+html.k-ios .btn-ghost { box-shadow: none; background: rgba(118, 118, 128, .12); color: var(--primary-text); }
+html.k-ios .card { border: 0; border-radius: 18px; background: var(--surface); }
+html.k-ios .pill { height: 34px; border: 0; background: rgba(118, 118, 128, .12); font-size: 15px; font-weight: 600; }
+html.k-ios .pill .thumb { width: 26px; height: 26px; }
+html.k-ios .pill[aria-current="true"] { background: var(--primary); color: var(--on-primary); }
+html.k-ios .field :is(input, textarea) { border-radius: 10px; font-size: 17px; }
+html.k-ios .radio-card { border-radius: 12px; }
+html.k-ios .summary { border: 0; border-radius: 18px; background: var(--surface); }
+/* cart: a sheet that rises from the bottom */
+html.k-ios .drawer { top: auto; left: 0; right: 0; width: 100%; height: calc(100% - 56px - env(safe-area-inset-top, 0px)); transform: translateY(100%); border-radius: 22px 22px 0 0; padding-bottom: env(safe-area-inset-bottom, 0px); z-index: 1001; }
+html.k-ios .drawer.open { transform: none; }
+html.k-ios .drawer-h { border: 0; padding-top: 20px; }
+html.k-ios .drawer-h::before { content: ""; position: absolute; top: 6px; left: 50%; width: 36px; height: 5px; margin-left: -18px; border-radius: 3px; background: rgba(127, 127, 127, .4); }
+html.k-ios .drawer-h h2 { font-size: 20px; font-weight: 700; }
+html.k-ios .scrim { z-index: 1000; background: rgba(0, 0, 0, .3); }
+html.k-ios .toast { bottom: calc(96px + env(safe-area-inset-bottom, 0px)); border-radius: 18px; background: color-mix(in srgb, var(--surface) 82%, transparent); color: var(--ink); backdrop-filter: blur(20px) saturate(1.6); -webkit-backdrop-filter: blur(20px) saturate(1.6); box-shadow: 0 8px 30px rgba(0, 0, 0, .16); font-weight: 600; z-index: 1002; }
+html.k-ios .toast button { color: var(--primary-text); text-decoration: none; }
+html.k-ios .filters.open { z-index: 1001; border-radius: 22px 22px 0 0; }
+html.k-ios dialog.modal { border: 0; border-radius: 22px; }
+html.k-ios a.btn.btn-primary, html.k-ios .btn.btn-primary { color: var(--on-primary) !important; }
+html.k-ios .add { color: var(--on-primary); }

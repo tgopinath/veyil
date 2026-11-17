@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-m3-primary="#b5401b">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -11,7 +11,13 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,400&family=Noto+Sans+Tamil:wght@400;700&display=swap">
 <link rel="stylesheet" href="kolam/tokens.css">
-<link rel="stylesheet" href="styles.css?v=8">
+<link rel="stylesheet" href="styles.css?v=9">
+<!-- Native app looks: Material Design 3 inside the Android app, Apple HIG inside the iOS app. Both stay off in a browser. -->
+<script src="https://tgopinath.github.io/kolam-design-system/m3/kolam-m3.js"></script>
+<link rel="stylesheet" href="https://tgopinath.github.io/kolam-design-system/m3/kolam-m3.css">
+<link rel="stylesheet" href="https://tgopinath.github.io/kolam-design-system/ios/kolam-ios.css">
+<script src="https://tgopinath.github.io/kolam-design-system/ios/kolam-ios.js"></script>
+<link rel="stylesheet" href="app-mode.css?v=1">
 </head>
 <body>
 <!-- Shared filters for every product illustration -->
@@ -68,7 +74,7 @@
     <div><h3>Help</h3><ul><li><a href="#/story">How it’s made</a></li><li><a href="#/story#faq">Soaking & storage</a></li><li><a href="#/shop?type=boxes">Gift boxes</a></li><li><button class="link" id="creditsBtn">Photo credits</button></li><li><a href="admin.html">Admin</a></li></ul></div>
     <div><h3>Say vanakkam</h3><ul><li>WhatsApp orders</li><li>Wholesale & restaurants</li><li>Farm visits on Saturdays</li></ul></div>
   </div>
-  <p class="foot-note">Demo store · prices and stock are illustrative · product art is drawn in code, reference photos from Wikimedia Commons</p>
+  <p class="foot-note">Demo store · prices and stock are illustrative · product art is drawn in code, reference photos from Wikimedia Commons<span class="vy-app-only"> · <button class="link" id="creditsBtnApp">Photo credits</button></span></p>
 </footer>
 
 <div class="scrim" id="scrim" hidden></div>
@@ -79,6 +85,7 @@
 <script src="credits.js?v=7"></script>
 <script src="data.js?v=7"></script>
 <script src="art.js?v=7"></script>
-<script src="store.js?v=9"></script>
+<script src="app-mode.js?v=1"></script>
+<script src="store.js?v=10"></script>
 </body>
 </html>

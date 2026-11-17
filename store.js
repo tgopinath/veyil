@@ -92,6 +92,7 @@
   function saveCart() {
     store.set('cart', cart);
     $('#cartCount').textContent = count();
+    window.VeyilApp?.cart();
     if ($('#cart').classList.contains('open')) renderCart();
   }
   function addToCart(id, s = 0, q = 1) {
@@ -148,6 +149,7 @@
     lastFocus && lastFocus.focus && lastFocus.focus();
   }
   $('#cartBtn').onclick = openCart;
+  window.VeyilApp?.connect({ openCart, count });
   $('#scrim').onclick = () => { closeCart(); closeFilters(); };
   addEventListener('keydown', (e) => { if (e.key === 'Escape') { closeCart(); closeMega(); closeFilters(); } });
 
@@ -518,13 +520,13 @@
   }
 
   /* credits */
-  $('#creditsBtn').onclick = () => {
+  $$('#creditsBtn, #creditsBtnApp').forEach((b) => b.onclick = () => {
     const m = $('#credits');
     m.innerHTML = `<div class="modal-in"><div style="display:flex;justify-content:space-between;align-items:center"><h2 style="font-size:22px">Photo credits</h2><button class="icon-btn" aria-label="Close" onclick="this.closest('dialog').close()">${ic('close')}</button></div>
       <p class="muted">Product illustrations are drawn in code. Reference photos are from Wikimedia Commons:</p>
       <ul>${Object.entries(CREDITS).map(([k, c]) => `<li><a href="${c.page}" target="_blank" rel="noopener">${esc(c.file)}</a> by ${esc(c.author)} · ${esc(c.license)}</li>`).join('')}</ul></div>`;
     m.showModal();
-  };
+  });
 
   /* router */
   function route() {
@@ -540,6 +542,7 @@
     else home();
     if (!h.includes('#faq')) scrollTo({ top: 0, behavior: 'instant' });
     const t = main.querySelector('h1'); document.title = (t && path !== '/' ? t.textContent + ' · ' : '') + 'Veyil · Sun-dried pantry';
+    window.VeyilApp?.route(path, params);
     main.focus({ preventScroll: true });
   }
   // in-page anchors like #what should not trigger routing
