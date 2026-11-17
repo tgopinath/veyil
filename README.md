@@ -19,3 +19,5 @@ Put `ADMIN_USER` and `ADMIN_PASSWORD` in `.env.local`. Store at http://localhost
 Vercel project with env vars `ADMIN_USER`, `ADMIN_PASSWORD` and a connected Blob store.
 
 Reference photos: Wikimedia Commons, see `credits.js`.
+
+Architecture: see [ARCHITECTURE.md](ARCHITECTURE.md).
